@@ -45,8 +45,10 @@
             border-radius: 5px;
             width: 80%;
             box-shadow: 0px 0px 10px #ff8000; /* Orange glow */
-            transition: background-color 0.3s, transform 0.3s;
-            animation: rainbow 5s infinite; /* Apply rainbow animation */
+            border: 2px solid transparent;
+            background-clip: padding-box;
+            animation: border-rainbow 5s infinite, glow 1s infinite;
+            transition: transform 0.3s;
         }
 
         a:hover {
@@ -54,15 +56,20 @@
             box-shadow: 0px 0px 15px #ff8000; /* Orange glow on hover */
         }
 
-        @keyframes rainbow {
-            0% { background-color: #ff0000; }
-            14% { background-color: #ff7f00; }
-            28% { background-color: #ffff00; }
-            42% { background-color: #00ff00; }
-            57% { background-color: #0000ff; }
-            71% { background-color: #4b0082; }
-            85% { background-color: #9400d3; }
-            100% { background-color: #ff0000; }
+        @keyframes border-rainbow {
+            0% { border-color: #ff0000; }
+            14% { border-color: #ff7f00; }
+            28% { border-color: #ffff00; }
+            42% { border-color: #00ff00; }
+            57% { border-color: #0000ff; }
+            71% { border-color: #4b0082; }
+            85% { border-color: #9400d3; }
+            100% { border-color: #ff0000; }
+        }
+
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 5px #ff8000; }
+            50% { box-shadow: 0 0 20px #ff8000; }
         }
     </style>
 </head>
